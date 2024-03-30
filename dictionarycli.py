@@ -18,6 +18,9 @@ API_KEY = "<MERRIAM-WEBSTER API KEY>"
 API_KEY_MEDICAL = "<MERRIAM-WEBSTER API KEY>"
 dict_type = "sd3"
 
+if not os.path.exists("words"):
+    os.mkdir("words")
+
 
 def load_json(word):
     with open(f"words/{word}.json") as data:
