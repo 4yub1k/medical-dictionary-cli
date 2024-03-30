@@ -14,9 +14,9 @@ console = Console()
 db = Database(db_file="dictionary")
 db.create_table(table_name="dictionary", word="Word", meaning="Meaning")
 
-API_KEY = "<MERRIAM-WEBSTER API KEY>"
-API_KEY_MEDICAL = "<MERRIAM-WEBSTER API KEY>"
-dict_type = "sd3"
+# API_KEY = "<MERRIAM-WEBSTER API KEY>"
+# API_KEY_MEDICAL = "<MERRIAM-WEBSTER API KEY>"
+# dict_type = "sd3"
 
 if not os.path.exists("words"):
     os.mkdir("words")
@@ -49,6 +49,11 @@ def print_table(word_list):
 @yaspin(text="Wait Loading...", color="green", timer=True, spinner=Spinners.earth)
 def search_online(word: str = None, type: str = "Intermediate"):
     try:
+        # Use Typer with env.
+        API_KEY = "<MERRIAM-WEBSTER API KEY>"
+        API_KEY_MEDICAL = "<MERRIAM-WEBSTER API KEY>"
+        dict_type = "sd3"
+
         if "medical" in type:
             API_KEY = API_KEY_MEDICAL
             dict_type = "medical"
